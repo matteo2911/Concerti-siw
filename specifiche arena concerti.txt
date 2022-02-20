@@ -1,0 +1,10 @@
+UC.1) Un visitatore può utilizzare il sistema per registrarsi.  
+UC.2) Un utente può utilizzare il sistema per registrarsi e deffettuare il login.  
+UC.3) Un utente loggato può visionare la lista dei concerti, delle canzoni, degli artisti che l'arena ospita.  
+UC.4) Un amministratore può usare il sistema per inserire i dati di un artista, una canzone , un concerto.  
+UC.5) Un amministratore può aggiungere o rimuovere canzoni da  un concerto.  
+UC.6) Un amministratore può eliminare canzoni e concerti e artisti.  
+UC.7)  Un utente loggato può iscriversi ad un concerto  
+UC.8)  Un utente loggato può annullare l'iscrizione ad un concerto  
+UC.9) Un utente loggato può visionare la lista degli artisti e delle canzoni.
+UC.10)  Un utente loggato può visionare la lista dei concerti a cui si è iscritto.
