@@ -19,22 +19,22 @@
 		<div style="text-align: right;margin:0 auto; margin-right:40%;">
 			<div>
 				<span class="campo-form">Nome:</span>
-				<span ><input type="text" th:field="*{nome}" /></span>
+				<span ><input type="text" th:field="*{nome}" required /></span>
 				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
 			</div>
 			<div>
 				<span class="campo-form">Cognome:</span>
-				<span><input type="text" th:field="*{cognome}" /></span>
+				<span><input type="text" th:field="*{cognome}"  required/></span>
 				<span th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></span>
 			</div>
 			
 			<div>
 				<span class="campo-form">Data di nascita:</span>
-				<span><input type="date" th:field="*{dataDiNascita}"/></span>
+				<span><input type="date" th:field="*{dataDiNascita}"  required/></span>
 			</div>
 			<div>
 				<span class="campo-form">Luogo di nascita:</span>
-				<span><input type="text" th:field="*{luogoDiNascita}"/></span>
+				<span><input type="text" th:field="*{luogoDiNascita}" required/></span>
 			</div>
 			<br>
 			

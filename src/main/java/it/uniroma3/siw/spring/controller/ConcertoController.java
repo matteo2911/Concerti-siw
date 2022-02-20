@@ -130,6 +130,5 @@ public class ConcertoController {
     		concertoService.eliminaConcerto(c);
     		model.addAttribute("concerti", this.concertoService.tutti());
     		return "concerti.html";
-    }
-    
+    }    
 }

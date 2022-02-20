@@ -1,5 +1,7 @@
 package it.uniroma3.siw.spring.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 
 import it.uniroma3.siw.spring.model.Artista;
+import it.uniroma3.siw.spring.model.Canzone;
 import it.uniroma3.siw.spring.model.Credentials;
 import it.uniroma3.siw.spring.service.ArtistaService;
 
@@ -50,6 +53,8 @@ public class ArtistaController {
     	return "artista.html";
     }
 
+    
+    
     @RequestMapping(value = "/artista", method = RequestMethod.GET)
     public String getArtisti(Model model) {
     		model.addAttribute("artisti", this.artistaService.tutti());
@@ -87,6 +92,21 @@ public class ArtistaController {
     	model.addAttribute("canzoniArtista",a.getCanzoni());
     	return "artista";
     	
+    }
+
+    @RequestMapping(value = "/admin/eliminaArtista/{id}", method = RequestMethod.POST)
+    public String eliminaArtista(Model model, @PathVariable("id") Long id) {
+    		
+    		Artista a=artistaService.artistaPerId(id);
+    		
+    		List<Canzone> canzoni=artistaService.getCanzoniArtista(a);
+    		for(Canzone c: canzoni) {
+    			artistaService.getCanzoneService().eliminaCanzone(c);
+    		}
+    		
+    		artistaService.eliminaArtista(a);
+    		model.addAttribute("artista", this.artistaService.tutti());
+    		return "artisti.html";
     }
     
 }

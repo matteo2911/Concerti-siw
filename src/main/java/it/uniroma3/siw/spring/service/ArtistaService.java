@@ -1,5 +1,6 @@
 package it.uniroma3.siw.spring.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.spring.model.Artista;
+import it.uniroma3.siw.spring.model.Canzone;
 import it.uniroma3.siw.spring.repository.ArtistaRepository;
 
 @Service
@@ -19,6 +21,9 @@ public class ArtistaService {
 	
 	@Autowired
 	private CredentialsService credentialsService;
+	
+	@Autowired
+	private CanzoneService canzoneService;
 	
 	public ArtistaRepository getArtistaRepository() {
 		return artistaRepository;
@@ -49,7 +54,11 @@ public class ArtistaService {
 	public Artista artistaPerNomeAndCognome(String nome, String cognome) {
 		return artistaRepository.findByNomeAndCognome(nome, cognome).get(0);
 	}
-
+	@Transactional
+	public void eliminaArtista(Artista a) {
+		artistaRepository.delete(a);
+     }
+	
 	@Transactional
 	public List<Artista> tutti() {
 		return (List<Artista>) artistaRepository.findAll();
@@ -72,4 +81,24 @@ public class ArtistaService {
 		else 
 			return false;
 	}
+	
+	
+	public CanzoneService getCanzoneService() {
+		return canzoneService;
+	}
+	
+	
+	@Transactional
+	public List<Canzone> getCanzoniArtista(Artista a){
+		
+		
+		List<Canzone> lista = new ArrayList<>();
+		
+		for(Canzone c: canzoneService.tutti()) {
+			if(c.getArtista()== a)
+				lista.add(c);
+		}
+		return lista;
+	}
+	
 }

@@ -67,15 +67,15 @@ public class CanzoneService {
 	@Transactional
 	public List<Canzone> filtraLista(List<Canzone> lista) {
 		List<Canzone> opere=this.tutti();
-		for(Canzone o:lista) {	//rimuovo opere che appartengono già alla collezione
-			opere.remove(o);
+		for(Canzone c:lista) {	//rimuovo opere che appartengono già alla collezione
+			opere.remove(c);
 		}
 		return opere;
 	}
 
 	@Transactional
-	public void eliminaCanzone(Canzone o) {
-		canzoneRepository.delete(o);
+	public void eliminaCanzone(Canzone c) {
+		canzoneRepository.delete(c);
 	}
 
 	/*@Transactional

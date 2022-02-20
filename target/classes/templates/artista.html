@@ -44,9 +44,17 @@
 			<div th:unless="${artista}">Non esiste</div>
 		</div>
 	</div>
-	<div><a href="/default"><button class="sub-button"
-				style="margin-top: 19px;">Home</button></a></div>
+	<div class="flex-container2">
+		<div>
+			<form th:if="${credentials.role == 'ADMIN'}" th:action="@{'/admin/eliminaArtista' + '/' + ${artista.id}}"
+				method="POST">
+				<button class="sub-button" type="submit" th:text="#{elimina.artista}"></button>
+			</form>
+		</div>
 
+		<div><a href="/default"><button class="sub-button" style="margin-top: 19px;">Home</button></a></div>
+		
+	</div>
 </body>
 
 </html>
