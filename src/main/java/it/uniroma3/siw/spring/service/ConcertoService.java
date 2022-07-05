@@ -7,9 +7,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import it.uniroma3.siw.spring.model.Concerto;
 import it.uniroma3.siw.spring.model.Canzone;
+import it.uniroma3.siw.spring.model.Concerto;
 import it.uniroma3.siw.spring.repository.ConcertoRepository;
 
 @Service
@@ -80,6 +79,7 @@ public class ConcertoService {
 		}
 		concertoRepository.delete(c);
 	}
+	 
 	
 
 }

@@ -14,6 +14,12 @@
 			Descrizione: <span th:text="*{descrizione}">qui-va-descrizione</span><br>
 			Sponsor: <span th:text="*{sponsor.nome}"  th:if="${concerto.sponsor!=null}" >qui-va-lo-sponsor</span><br>
 			Data: <span th:text="*{dataConcerto}">qui-va-la-data</span>
+			<li style="margin-top: 25px;" th:each="canzone : ${canzoniConcerto}">
+				<a href="artista.html" 
+				   th:href="@{'/artista' + '/' + ${canzone.artista.id}}">
+				   <span class="el-lista"  th:text="${canzone.artista.nome}">Paolo Rossi</span></a>
+			</li>
+			
 			</div>
 		</div>
 		<div class="box">

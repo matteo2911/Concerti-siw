@@ -93,8 +93,8 @@ public class Concerto {
 		return canzoni;
 	}
 
-	public void setCanzoni(List<Canzone> opere) {
-		this.canzoni = opere;
+	public void setCanzoni(List<Canzone> canzoni) {
+		this.canzoni = canzoni;
 	}
 	
 	public void addCanzone(Canzone o) {
@@ -143,6 +143,6 @@ public class Concerto {
 			return false;
 		return true;
 	}
+
 	
-	
-}
+	}

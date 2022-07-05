@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import it.uniroma3.siw.spring.model.Artista;
 import it.uniroma3.siw.spring.model.Canzone;
+
 import it.uniroma3.siw.spring.model.Credentials;
 import it.uniroma3.siw.spring.service.ArtistaService;
 
@@ -109,5 +110,17 @@ public class ArtistaController {
     		return "artisti.html";
     }
     
+    
+    @RequestMapping(value = "/admin/eliminaImmagine/{id}", method = RequestMethod.POST)
+    public String eliminaImmagineArtista(Model model, @PathVariable("id") Long id) {
+    	
+    	Artista a= artistaService.artistaPerId(id);
+    	a.setImmagine(null);
+    	UserDetails userDetails = (UserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+    	Credentials credentials = this.artistaService.getCredentialsService().getCredentials(userDetails.getUsername());
+    	model.addAttribute("credentials",credentials);
+    	model.addAttribute("artista", a);
+    	model.addAttribute("canzoniArtista",a.getCanzoni());
+    	return "artista.html";
+    }
 }
-

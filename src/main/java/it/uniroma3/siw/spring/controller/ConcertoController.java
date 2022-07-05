@@ -55,7 +55,6 @@ public class ConcertoController {
     	
     	model.addAttribute("credentials", credentials);
     	model.addAttribute("iscritto",c.getIscritti().contains(credentials.getUser()));
-    	model.addAttribute("numero",c.getCanzoni().size());
     	return "concerto.html";
     }
 

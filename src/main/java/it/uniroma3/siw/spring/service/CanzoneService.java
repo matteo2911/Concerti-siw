@@ -56,8 +56,8 @@ public class CanzoneService {
 
 	@Transactional
 	public boolean alreadyExists(Canzone canzone) {
-		List<Canzone> opere = this.canzoneRepository.findByTitolo(canzone.getTitolo());
-		if (opere.size() > 0)
+		List<Canzone> canzoni = this.canzoneRepository.findByTitolo(canzone.getTitolo());
+		if (canzoni.size() > 0)
 			return true;
 		else 
 			return false;
